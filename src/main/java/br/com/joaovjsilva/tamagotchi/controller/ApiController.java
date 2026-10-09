@@ -9,13 +9,17 @@ import br.com.joaovjsilva.tamagotchi.service.TamagotchiService;
 @RestController
 public class ApiController {
     @Autowired
-    private TamagotchiService service;
+    private final TamagotchiService service;
+
+    public ApiController(TamagotchiService service){
+        this.service = service;
+    }
 
     @GetMapping("/turno")
     public void turno() {
-        // service.getGato().turno();
-        // service.getCachorro().turno();
-        // service.getDragao().turno();
+        service.getGato().turno();
+        service.getCachorro().turno();
+        service.getDragao().turno();
     }
 
 }
